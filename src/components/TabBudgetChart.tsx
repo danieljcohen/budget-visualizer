@@ -40,12 +40,9 @@ export function TabBudgetChart({ data }: TabBudgetChartProps) {
             {data.name}
           </span>
         </div>
-        <h2 className="text-2xl font-display font-bold text-white mb-2">
+        <h2 className="text-2xl font-display font-bold text-white">
           {data.name} Budget Breakdown
         </h2>
-        <p className="text-navy-300">
-          Category-wise spending analysis
-        </p>
       </div>
 
       {/* Stats row */}
