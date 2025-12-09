@@ -1,0 +1,23 @@
+export function LoadingSpinner() {
+  return (
+    <div className="flex flex-col items-center justify-center py-20">
+      <div className="relative">
+        {/* Outer ring */}
+        <div className="w-16 h-16 border-4 border-navy-700 rounded-full" />
+        
+        {/* Spinning ring */}
+        <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-gold-500 rounded-full animate-spin" />
+        
+        {/* Inner dot */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-3 h-3 bg-gold-500 rounded-full animate-pulse" />
+        </div>
+      </div>
+      
+      <p className="mt-6 text-navy-300 font-medium animate-pulse">
+        Loading budget data...
+      </p>
+    </div>
+  );
+}
+
