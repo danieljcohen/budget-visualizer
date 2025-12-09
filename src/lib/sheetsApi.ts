@@ -128,6 +128,7 @@ export function calculateOverallBudget(tabsData: Map<TabName, TabBudget>) {
   let totalSpent = 0;
 
   const tabBreakdown: { id: string; label: string; value: number; color: string }[] = [];
+  const allocationBreakdown: { id: string; label: string; value: number; color: string; spent: number; utilization: number }[] = [];
 
   for (const [tabName, data] of tabsData) {
     totalBudget += data.totalBudget;
@@ -139,6 +140,18 @@ export function calculateOverallBudget(tabsData: Map<TabName, TabBudget>) {
         label: tabName,
         value: data.totalSpent,
         color: TAB_COLORS[tabName],
+      });
+    }
+
+    // Add to allocation breakdown (budget allocation per chair)
+    if (data.totalBudget > 0) {
+      allocationBreakdown.push({
+        id: tabName,
+        label: tabName,
+        value: data.totalBudget,
+        color: TAB_COLORS[tabName],
+        spent: data.totalSpent,
+        utilization: data.totalBudget > 0 ? (data.totalSpent / data.totalBudget) * 100 : 0,
       });
     }
   }
@@ -160,6 +173,7 @@ export function calculateOverallBudget(tabsData: Map<TabName, TabBudget>) {
     totalSpent,
     remaining,
     tabBreakdown,
+    allocationBreakdown,
   };
 }
 

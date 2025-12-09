@@ -29,6 +29,15 @@ export interface OverallBudget {
     value: number;
     color: string;
   }[];
+  // Budget allocation by chair
+  allocationBreakdown: {
+    id: string;
+    label: string;
+    value: number;
+    color: string;
+    spent: number;
+    utilization: number;
+  }[];
 }
 
 export type TabName = 'Social' | 'Recruitment' | 'Brotherhood' | 'Other' | 'Housing';
